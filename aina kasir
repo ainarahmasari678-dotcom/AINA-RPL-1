@@ -1,0 +1,83 @@
+print("========haoran's café========")
+pembeli = input("nama pembeli: ")
+print("nama pembeli : ", pembeli)
+
+def menu():
+    global menu
+    global totalmenu
+    global porsi
+    
+    print("========haoran's menu========")
+    print("1. matcha latte  - Rp.20.000")
+    print("2. americano     - Rp.15.000")
+    print("3. cappuccino    - Rp.25.000")
+    print("4. cheese cake   - Rp.30.000")
+    print("5. oreo cake     - Rp.25.000")
+    print("6. strawberry cake- Rp.35.000")
+    
+    print("========happy eating========")
+    
+    menu = int(input("masukkan nomor menu yang ingin dipesan : "))
+    porsi = int(input("masukkan jumlah porsi yang ingin dipesan : "))
+    
+    if menu == 1:
+        totalmenu = 20000 * porsi
+        print(f"menu yang anda pesan adalah matcha latte dengan jumlah porsi {porsi}, dan total harga yang harus dibayar adalah Rp.{totalmenu}")
+        menu = "matcha latte"
+    
+    if menu == 2:
+        totalmenu = 15000 * porsi
+        print(f"menu yang anda pesan adalah americano dengan jumlah porsi {porsi}, dan total harga yang harus dibayar adalah Rp.{totalmenu}")
+        menu = "americano"
+    
+    if menu == 3:
+        totalmenu = 25000 * porsi
+        print(f"menu yang anda pesan adalah cappuccino dengan jumlah porsi {porsi}, dan total harga yang harus dibayar adalah Rp.{totalmenu}")
+        menu = "cappuccino"
+    
+    if menu == 4:
+        totalmenu = 30000 * porsi
+        print(f"menu yang anda pesan adalah cheese cake dengan jumlah porsi {porsi}, dan total harga yang harus dibayar adalah Rp.{totalmenu}")
+        menu = "cheese cake"
+    
+    if menu == 5:
+        totalmenu = 25000 * porsi
+        print(f"menu yang anda pesan adalah oreo cake dengan jumlah porsi {porsi}, dan total harga yang harus dibayar adalah Rp.{totalmenu}")
+        menu = "oreo cake"
+    
+    if menu == 6:
+        totalmenu = 35000 * porsi
+        print(f"menu yang anda pesan adalah strawberry cake dengan jumlah porsi {porsi}, dan total harga yang harus dibayar adalah Rp.{totalmenu}")
+        menu = "strawberry cake"
+    
+    # Apply discount if total price is more than 10,000
+    if totalmenu > 10000:
+        diskon = totalmenu * 0.1  # 10% discount
+        totalmenu -= diskon
+        print(f"Diskon 10% diberikan. Total yang harus dibayar setelah diskon adalah Rp.{totalmenu}")
+    else:
+        print("Total pembelian tidak memenuhi syarat diskon.")
+    
+    # Input amount paid
+    uang_dibayar = float(input("Masukkan jumlah uang yang dibayar: Rp."))
+    
+    # Check if the amount paid is sufficient
+    if uang_dibayar < totalmenu:
+        print("Uang yang dibayar kurang. Silakan masukkan jumlah yang tepat.")
+    else:
+        kembalian = uang_dibayar - totalmenu
+        print(f"Kembalian yang harus diberikan: Rp.{kembalian}")
+        
+        # Print receipt (struk)
+        print("\n======== STRUK PEMBAYARAN ========")
+        print(f"Nama Pembeli: {pembeli}")
+        print(f"Menu yang dipesan: {menu}")
+        print(f"Jumlah Porsi: {porsi}")
+        print(f"Total Harga: Rp.{totalmenu + diskon if totalmenu != 0 else totalmenu}")
+        print(f"Diskon: Rp.{diskon if totalmenu != 0 else 0}")
+        print(f"Total yang harus dibayar: Rp.{totalmenu}")
+        print(f"Uang yang dibayar: Rp.{uang_dibayar}")
+        print(f"Kembalian: Rp.{kembalian}")
+        print("\n======== Terima kasih telah berkunjung! ========")
+
+menu()
